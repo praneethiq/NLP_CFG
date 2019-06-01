@@ -1,0 +1,97 @@
+S -> NP[num=?x, CAT=np] VP[SUBCAT=nil, num=?x]
+S -> Conj S S
+S -> Adv Aux[num=?x] NP[num=?x] VP[num=pl]
+S -> S Conj S
+
+
+
+NP[num=?x, CAT=np] -> ProperNoun[num=?x]
+NP[num=?x, CAT=np] -> N[num=?x]
+NP[num=?x, CAT=np] -> AP NP[num=?x, CAT=np]
+NP[num=?x, CAT=np] -> Det NP[num=?x, CAT=np]
+NP[num=pl, CAT=np] -> NP[num=?x, CAT=np] Conj NP[num=?x, CAT=np]
+
+
+
+VP[num=?x, SUBCAT=?rest] -> VP[num=?x, SUBCAT=[HEAD=?arg, TAIL=?rest]] ARG[CAT=?arg]
+VP[num=?x, SUBCAT=?args] -> V[num=?x, SUBCAT=?args]
+VP[num=?x, SUBCAT=?args] -> V[num=?x, SUBCAT=?args] VP[num=?x, SUBCAT=[HEAD=?arg, TAIL=?rest]] ARG[CAT=?arg]
+VP[num=?x, SUBCAT=?args] -> VP[num=?x, SUBCAT=[HEAD=npnp, TAIL=?args]] ARG[CAT=np] ARG[CAT=np]
+VP[num=?x, SUBCAT=?args] -> Adv VP[num=?x, SUBCAT=?args]
+
+
+
+AP -> Adj
+AP -> Adj AP
+
+PP[CAT=pp] -> Prep NP[CAT=np]
+
+V[num = sg,SUBCAT=[HEAD=np, TAIL=[HEAD=pp, TAIL=nil]]] -> 'carries'
+V[num = sg,SUBCAT=[HEAD=np, TAIL=nil]] -> 'carries'
+V[num = pl,SUBCAT=[HEAD=np, TAIL=[HEAD=pp, TAIL=nil]]] -> 'carry'
+V[num = pl,SUBCAT=[HEAD=np, TAIL=nil]] -> 'carry'
+V[num = sg,SUBCAT=[HEAD=np, TAIL=[HEAD=pp, TAIL=nil]]] -> 'wears'
+V[num = sg,SUBCAT=[HEAD=np, TAIL=nil]] -> 'wears'
+V[SUBCAT=[HEAD=np, TAIL=[HEAD=pp, TAIL=nil]]] -> 'carried'
+V[SUBCAT=[HEAD=np, TAIL=nil]] -> 'carried'
+V[num = sg,SUBCAT=[HEAD=np, TAIL=[HEAD=pp, TAIL=nil]]] -> 'rolls'
+V[num = sg,SUBCAT=[HEAD=np, TAIL=nil]] -> 'rolls'
+V[num = sg,SUBCAT=[HEAD=pp, TAIL=nil]] -> 'rolls'
+
+V[num = pl, SUBCAT = [HEAD=pp, TAIL=nil]] -> 'sneeze'
+V[num = pl, SUBCAT = nil] -> 'sneeze'
+V[num = sg, SUBCAT = [HEAD=pp, TAIL=nil]] -> 'sneezes'
+V[num = sg, SUBCAT = nil] -> 'sneezes'
+V[SUBCAT=[HEAD=pp, TAIL=nil]] -> 'sneezed'
+V[SUBCAT=nil] -> 'sneezed'
+
+V[SUBCAT=[HEAD=npnp, TAIL=[HEAD=pp, Tail=nil]]] -> 'gave'
+V[SUBCAT=[HEAD=npnp, TAIL=nil]] -> 'gave'
+
+V[num = sg,SUBCAT=[HEAD=pp, TAIL=nil]] -> 'walks'
+V[num = pl,SUBCAT=[HEAD=pp, TAIL=nil]] -> 'walk'
+
+V[num = sg,SUBCAT=[HEAD=s, TAIL=nil]] -> 'thinks'
+
+
+
+V -> 'walking'
+V[num = sg] -> 'likes'
+
+ARG[CAT=np] -> NP
+ARG[CAT=pp] -> PP
+ARG[CAT=s] -> S
+
+
+
+Aux[num=pl] -> 'do'
+Aux[num=sg] -> 'does'
+
+N[num = sg] -> 'suit'
+N[num = sg] -> 'house'
+N[num = sg] -> 'piano'
+N[num = pl] -> 'wheels'
+N[num = pl] -> 'stairs'
+
+ProperNoun[num = sg] -> 'Stan'
+ProperNoun[num = sg] -> 'Ollie'
+
+Det[num = sg] -> 'a'
+Det[num = sg] -> 'an'
+Det[num = ?num] -> 'the'
+
+Conj -> 'and'
+Conj -> 'when'
+
+Prep -> 'in'
+Prep -> 'with'
+Prep -> 'up'
+Prep -> 'down'
+
+Adj -> 'grey'
+Adj -> 'large'
+Adj -> 'heavy'
+
+Adv -> 'when'
+Adv -> 'always'
+Adv -> 'what'
